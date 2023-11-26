@@ -5,10 +5,25 @@ document.querySelector("#jeans-menu").onclick = () => {
   navbarNav.classList.toggle("active");
 };
 
-// Klik diluar side bar untuk menghilangkan Nav
-const jeans = document.querySelector("#jeans-menu");
+// togle class active untuk search form
+const searchForm = document.querySelector(".search-form");
+const searchBox = document.querySelector("#search-box");
+
+document.querySelector("#search-button").onclick = (e) => {
+  searchForm.classList.toggle("active");
+  searchBox.focus();
+  e.preventDefault();
+};
+
+// Klik diluar element
+const jn = document.querySelector("#jeans-menu");
+const sb = document.querySelector("#search-button");
+
 document.addEventListener("click", function (e) {
-  if (!jeans.contains(e.target) && !navbarNav.contains(e.target)) {
+  if (!jn.contains(e.target) && !navbarNav.contains(e.target)) {
     navbarNav.classList.remove("active");
+  }
+  if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
+    searchForm.classList.remove("active");
   }
 });
